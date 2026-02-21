@@ -14,7 +14,7 @@ def add():
     title = request.form.get("title")
     if title:
         m.add_task(title)
-        return redirect("/")
+    return redirect("/")
     
 @app.route("/done/<int:task_id>", methods=["POST"])
 def done(task_id):
