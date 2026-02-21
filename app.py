@@ -11,7 +11,7 @@ def index():
 
 @app.route("/add", methods=["POST"])
 def add():
-    title = request.form.get("title")
+    title = request.form.get("title").strip()
     if title:
         m.add_task(title)
     return redirect("/")
