@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="POST" action="/add" class="mb-6 flex gap-2"><input type="text" name="title" placeholder="Ketik Tugas" class="flex-1 px-3 py-2 rounded text-black"><button class="bg-blue-600 px-4 py-2 rounded">Tambah</button></form>
+
+<ul>
+    {% for t in tasks %}
+    <li class="mb-3 flex items-center gap-2">
+
+        {% if t.done %}
+        <span class="line-through text-gray-400">{{ t.title }}</span>
+
+        {% else %}
+            <span>
+                {{ t.title }}
+            </span>
+            <form method="POST" action="/done/{{ t.id }}">
+                <input type="checkbox" onchange="this.form.submit()"
+                {% if t.done %} checked{% endif %}
+                class="w-5 h-5">
+            </form>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+
+<form method="POST" action="/delete_done" class="mt-6"><button class="bg-red-600 px-4 py-2 rounded">Hapus yang Selesai</button></form>
+{% endblock %}
+
