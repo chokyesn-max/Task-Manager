@@ -1,4 +1,5 @@
 import json
+import uuid
 from task import Task
 
 class TaskManager:
@@ -8,7 +9,7 @@ class TaskManager:
         self.load_tasks()
 
     def add_task(self, title):
-        new_id = len(self.tasks) + 1
+        new_id = str(uuid.uuid4())
         task = Task(new_id, title)
         self.tasks.append(task)
         self.save_tasks()

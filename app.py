@@ -16,7 +16,7 @@ def add():
         m.add_task(title)
     return redirect("/")
     
-@app.route("/done/<int:task_id>", methods=["POST"])
+@app.route("/done/<task_id>", methods=["POST"])
 def done(task_id):
     m.mark_done_by_id(task_id)
     return redirect("/")
