@@ -28,9 +28,9 @@ class TaskManager:
         for task in self.tasks:
             if task.done == False:
                 new_list.append(task)
-            self.save_tasks()
-
         self.tasks = new_list
+        self.save_tasks()
+        
 
     def save_tasks(self):
         data = []
