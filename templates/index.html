@@ -26,7 +26,16 @@
                 <input type="checkbox" onchange="this.form.submit()" class="w-5 h-5">
             </form>
         </div>
-        <div class="text-sm text-gray-400">{{ t.priority }} · {{ t.deadline }}</div>
+        <div class="text-sm text-gray-400">
+            {% if t.priority == "high" %}
+                <span class="text-red-400">High</span>
+            {% elif t.priority == "medium" %}
+                <span class="text-yellow-400">Medium</span>
+            {% elif t.priority == "low" %}
+                <span class="text-green-400">Low</span>
+        {% endif %}
+        · {{ t.deadline }}
+    </div>
         {% endif %}
     </li>
     {% endfor %}
