@@ -13,20 +13,20 @@
 
 <ul>
     {% for t in tasks %}
-    <li class="mb-3 flex items-center gap-2">
+    <li class="mb-3">
 
         {% if t.done %}
         <span class="line-through text-gray-400">{{ t.title }}</span>
+        
 
         {% else %}
-            <span>
-                {{ t.title }}
-            </span>
+        <div class="flex items-center gap-2">
+            <span>{{ t.title }}</span>
             <form method="POST" action="/done/{{ t.id }}">
-                <input type="checkbox" onchange="this.form.submit()"
-                {% if t.done %} checked{% endif %}
-                class="w-5 h-5">
+                <input type="checkbox" onchange="this.form.submit()" class="w-5 h-5">
             </form>
+        </div>
+        <div class="text-sm text-gray-400">{{ t.priority }} · {{ t.deadline }}</div>
         {% endif %}
     </li>
     {% endfor %}
