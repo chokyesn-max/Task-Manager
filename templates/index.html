@@ -25,6 +25,7 @@
             <form method="POST" action="/done/{{ t.id }}">
                 <input type="checkbox" onchange="this.form.submit()" class="w-5 h-5">
             </form>
+            <a href="/edit/{{ t.id }}" class="text-blue-400 text-sm">Edit</a>
         </div>
         <div class="text-sm text-gray-400">
             {% if t.priority == "high" %}

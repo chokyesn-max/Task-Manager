@@ -28,6 +28,21 @@ def delete_done():
     m.delete_done()
     return redirect("/")
 
+@app.route("/edit/<task_id>", methods=["GET"])
+def edit(task_id):
+    task = m.get_task_by_id(task_id)
+    print(f"Task: {task}")
+    return render_template("edit.html", task=task)
+
+@app.route("/edit/<task_id>", methods=["POST"])
+def edit_post(task_id):
+    title = request.form.get("title").strip()
+    priority = request.form.get("priority")
+    deadline = request.form.get("deadline")
+    if title:
+        m.edit_task(task_id, title, priority, deadline)
+    return redirect("/")
+
     
 
 

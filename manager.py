@@ -56,3 +56,19 @@ class TaskManager:
 
         except json.JSONDecodeError:
             self.tasks = []
+    
+    def get_task_by_id(self, id):
+        print(f"Mencari: {id}")
+        for task in self.tasks:
+            print(f"Ada: {task.id}")
+            if task.id == id:
+                return task
+            
+    def edit_task(self, id, title, priority, deadline):
+        for task in self.tasks:
+            if task.id == id:
+                task.title = title
+                task.priority = priority
+                task.deadline = deadline
+        self.save_tasks()
+        

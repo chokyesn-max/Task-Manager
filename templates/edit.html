@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-xl font-bold mb-4">Edit Task</h2>
+<form method="POST" action="/edit/{{ task.id }}" class="flex flex-col gap-3">
+    <input type="text" name="title" value="{{ task.title }}" class="px-3 py-2 rounded text-black">
+    <select name="priority" class="px-3 py-2 rounded text-black">
+        <option value="high" {% if task.priority == "high" %}selected{% endif %}>High</option>
+        <option value="medium" {% if task.priority == "medium" %}selected{% endif %}>Medium</option>
+        <option value="low" {% if task.priority == "low" %}selected{% endif %}>Low</option>
+    </select>
+    <input type="date" name="deadline" value="{{ task.deadline }}" class="px-3 py-2 rounded text-black">
+    <button class="bg-blue-600 px-4 py-2 rounded">Simpan</button>
+</form>
+{% endblock %}
