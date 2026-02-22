@@ -8,9 +8,9 @@ class TaskManager:
         self.filename = "tasks.json"
         self.load_tasks()
 
-    def add_task(self, title):
+    def add_task(self, title, priority, deadline):
         new_id = str(uuid.uuid4())
-        task = Task(new_id, title)
+        task = Task(new_id, title, priority=priority, deadline=deadline)
         self.tasks.append(task)
         self.save_tasks()
     

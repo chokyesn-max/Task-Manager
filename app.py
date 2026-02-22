@@ -12,8 +12,10 @@ def index():
 @app.route("/add", methods=["POST"])
 def add():
     title = request.form.get("title").strip()
+    priority = request.form.get("priority")
+    deadline = request.form.get("deadline")
     if title:
-        m.add_task(title)
+        m.add_task(title, priority, deadline)
     return redirect("/")
     
 @app.route("/done/<task_id>", methods=["POST"])

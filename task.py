@@ -25,6 +25,6 @@ class Task:
             data["title"],
             data["done"],
             data.get("priority", "medium"),
-            data.get("deadline", "none")
+            data.get("deadline", None)
         )
 
