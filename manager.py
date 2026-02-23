@@ -58,9 +58,7 @@ class TaskManager:
             self.tasks = []
     
     def get_task_by_id(self, id):
-        print(f"Mencari: {id}")
         for task in self.tasks:
-            print(f"Ada: {task.id}")
             if task.id == id:
                 return task
             
@@ -71,4 +69,11 @@ class TaskManager:
                 task.priority = priority
                 task.deadline = deadline
         self.save_tasks()
-        
+
+    def get_tasks_by_priority(self, priority):
+        new_list = []
+
+        for task in self.tasks:
+            if task.priority == priority:
+                 new_list.append(task)
+        return new_list  

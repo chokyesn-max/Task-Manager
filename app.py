@@ -6,7 +6,11 @@ m = TaskManager()
 
 @app.route("/")
 def index():
-    tasks = m.get_tasks()
+    priority = request.args.get("priority")
+    if priority:
+        tasks = m.get_tasks_by_priority(priority)
+    else:
+        tasks = m.get_tasks()
     return render_template("index.html", tasks=tasks)
 
 @app.route("/add", methods=["POST"])

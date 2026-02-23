@@ -3,6 +3,12 @@
 {% block content %}
 
 <form method="POST" action="/add" class="mb-6 flex gap-2"><input type="text" name="title" placeholder="Ketik Tugas" class="flex-1 px-3 py-2 rounded text-black">
+<div class="flex gap-2 mb-4">
+    <a href="/" class="px-3 py-1 rounded bg-gray-600">Semua</a>
+    <a href="/?priority=high" class="px-3 py-1 rounded bg-red-600">High</a>
+    <a href="/?priority=medium" class="px-3 py-1 rounded bg-yellow-600">Medium</a>
+    <a href="/?priority=low" class="px-3 py-1 rounded bg-green-600">Low</a>
+</div>
     <select name="priority" class="px-3 py-2 rounded text-black">
         <option value="high">High</option>
         <option value="medium" selected>Medium</option>
